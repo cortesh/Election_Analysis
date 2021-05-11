@@ -24,16 +24,27 @@ The analysis of the election show that:
 	
 ![2018 ReturnsDeliverable_1_print_to_command_line](https://github.com/cortesh/Election_Analysis/blob/main/Resources/Deliverable_1_print_to_command_line.png)
 
-## Challenge Summary
+## Challenge Summary - Election-Audit Summary: 
 
-Election-Audit Summary: In a summary statement, provide a business proposal to the election commission on how this script can be used—with some modifications—for any election. Give at least two examples of how this script can be modified to be used for other elections.
+It is the finding of this study that with minor changes to the script, it can be reused to tabulate local elections along with county wide and state wide elections.
 
+For example.  Currently, results are tabulated by candidate in a state wide race across multiple counties.  However, for smaller elections, it is not sufficient to determine which candidate received the most votes statewide irrespective of the county.  It will be necessary to create a nest for loop to run through each precinct and the candidates within each precinct before looping through the next candidate.  
 
+First a variable would hold the precinct similar to this:
 
-2. Election-Audit Results: Using a bulleted list, address the following election outcomes. Use images or examples of your code as support where necessary.
+'''
+        # 3: Extract the county name from each row.
+        county_name = row[1]
+'''
 
-* How many votes were cast in this congressional election?
-* Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
-* Which county had the largest number of votes?
-* Provide a breakdown of the number of votes and the percentage of the total votes each candidate received.
-* Which candidate won the election, what was their vote count, and what was their percentage of the total votes?
+Except here it would read:
+
+'''
+        # 3: Extract the county name from each row.
+        precinct_name = row[1]
+
+'''
+
+Then one would iterate through these precincts for the winner using the same code.
+
+Another consideration may be to test participation of each county as a share of their weight based on registered voters in order to determine turnout percentage.  For this, such registered voter data would have to be supplemented to the results but should be widely available.
