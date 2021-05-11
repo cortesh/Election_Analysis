@@ -32,19 +32,20 @@ For example.  Currently, results are tabulated by candidate in a state wide race
 
 First a variable would hold the precinct similar to this:
 
-'''
+```
         # 3: Extract the county name from each row.
         county_name = row[1]
-'''
+```
 
 Except here it would read:
 
-'''
+```
         # 3: Extract the county name from each row.
         precinct_name = row[1]
 
-'''
+```
 
 Then one would iterate through these precincts for the winner using the same code.
 
 Another consideration may be to test participation of each county as a share of their weight based on registered voters in order to determine turnout percentage.  For this, such registered voter data would have to be supplemented to the results but should be widely available.
+
